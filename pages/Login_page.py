@@ -10,7 +10,7 @@ class LoginPage:
         self.username_input = page.get_by_placeholder('Enter Username')
         self.next_button = page.get_by_role("button", name="Next")
         self.password_input = page.get_by_placeholder('Enter Password')
-        self.login_button = page.get_by_role("button", name="sign in")
+        self.login_button = page.get_by_role("button", name="Login")
         self.domain_dropdown = page.get_by_role("textbox", name="Select")
         self.language_dropdown = page.locator("div")
         self.switch = page.get_by_role("button")
@@ -39,7 +39,8 @@ class LoginPage:
     def smart_click(self, element_description):
         # 1. Get the text-based map of the page (Accessibility Tree)
         snapshot = self.page.locator("body").aria_snapshot()
-        
+        path = "sc1.png"
+        self.page.screenshot(path=path)
         # 2. Ask Llama to find the element in that text
         locator_str = VisionAgent.get_selector(snapshot, element_description)
         print(f"🤖 Llama suggested locator: {locator_str}")

@@ -12,7 +12,7 @@ def test_LDAP_Login_with_valid_credentials(page):
     login_page.select_domain("ntint.com")
     login_page.login("vishnu.vardhan", "India@2000")
 
-@pytest.mark.regression
+@pytest.mark.smoke
 def test_LDAP_Login_with_ai(page: Page):
     # 1. Go to a site
     login_page = LoginPage(page)
