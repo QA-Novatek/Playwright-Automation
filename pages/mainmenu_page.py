@@ -34,7 +34,7 @@ class Main_menu:
 
     def select_module(self, module_name: str):
         """Selects a specific module (like Results Entry) under a category."""
-        module_locator = self.page.getByText(module_name, exact=True)
+        module_locator = self.page.locator("a").filter(has_text=module_name)
         module_locator.wait_for(state="visible")
         module_locator.click()
 

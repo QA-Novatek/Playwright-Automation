@@ -11,13 +11,9 @@ def test_rde_navigation(page):
     login_page.navigate()
     page.wait_for_load_state("networkidle") 
     login_page.ai_login("vishnu.vardhan", "India@2000")
-    if not main_menu.dashboard_em.is_visible():
-        main_menu.click_main_menu()
-        main_menu.select_workflow("Environmental Monitoring")
-    else:
-        main_menu.click_main_menu()
-        main_menu.select_menu_category("Operations")
-        main_menu.select_module("Results Entry")
-        page.wait_for_load_state("networkidle") 
-        screenshot_path = "rde_page.png"
-        page.screenshot(path=screenshot_path)
+    main_menu.click_main_menu()
+    main_menu.select_menu_category("Operations")
+    main_menu.select_module("Results Entry")
+    page.wait_for_load_state("networkidle") 
+    screenshot_path = "rde_page.png"
+    page.screenshot(path=screenshot_path)
